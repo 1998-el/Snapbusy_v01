@@ -4,7 +4,7 @@
 .container {
   background: $primary-bg-color;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 4rem;
   @include display;
 
   &::before {
@@ -39,7 +39,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
 
     @media (max-width: 991px) {
       grid-template-columns: repeat(2, 1fr);
@@ -81,12 +81,14 @@
   .sectionTitle {
     font-size: 2rem;
     font-weight: 700;
+    width: 90%;
     text-align: center;
+    margin: 0 auto;
     margin-bottom: 1rem;
     color: $secondary-bg-color;
 
     @media (max-width: 767px) {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
   }
 
