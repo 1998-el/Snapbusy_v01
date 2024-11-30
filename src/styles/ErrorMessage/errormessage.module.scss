@@ -1,0 +1,27 @@
+$error-tooltip-background: rgba(255, 77, 77, 0.8); // Couleur de fond rouge pour l'erreur
+$error-arrow-color: #ff4d4d; // Couleur de la flèche
+
+.error_tooltip {
+    position: absolute;
+    left: 0;
+    bottom: -30px;
+    background-color: $error-tooltip-background;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10;
+    margin-top: -5px;
+
+    .arrow {
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        margin-top: -5px;
+        width: 0;
+        height: 0;
+        border-bottom: 5px solid $error-arrow-color;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+    }
+}

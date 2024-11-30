@@ -1,0 +1,75 @@
+@import "../utils/Variable.scss";
+
+@mixin flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: $secondary-bg-color;
+  @include flex;
+
+  .content {
+    width: 100%;
+    padding: 7rem 2rem;
+
+    @media (max-width: 991px) {
+      padding: 2rem;
+    }
+
+    .sectionTitle {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: $text-color;
+
+      @media (max-width: 767px) {
+        font-size: 2rem;
+      }
+    }
+
+    .aboutContent {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+
+      .aboutItem {
+        background-color: transparent;
+        border: none;
+        border-radius: 8px;
+        padding: 0;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .aboutTitle {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: $primary-color;
+          margin-bottom: 1rem;
+
+          @media (max-width: 767px) {
+            font-size: 1.2rem;
+          }
+        }
+
+        .aboutDescription {
+          font-size: 1rem;
+          color: $secondary-color;
+
+          @media (max-width: 767px) {
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}

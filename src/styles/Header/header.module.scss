@@ -1,0 +1,135 @@
+// _home.module.scss
+@import "../utils/Variable.scss";
+@import "../utils/Mixin.scss";
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-bg-color;
+  color: #fff;
+  padding: 0rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+    z-index: 888;
+
+  &_brand {
+    @include flexCenter;
+    
+    width: 10%;
+    height: 50px;
+    position: relative;
+    a{
+      height: 70px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+   
+  }
+
+  &_nav {
+    @include flexCenter;
+    width: 50%;
+
+    .nav_item {
+      list-style: none;
+      display: flex;
+
+      .nav_link {
+        @include navLink;
+      }
+    }
+  }
+
+  &_actions {
+    @include flexCenter;
+
+    .btn_login {
+      @include button(#fff, $primary-color, $hover-color);
+    }
+
+    .btn_signup {
+      @include button($primary-color, transparent, $primary-color);
+      margin-left: 1rem;
+      border: 1px solid $primary-color;
+      color: #fff;
+    }
+  }
+
+  .menu_burger {
+    display: none;
+    cursor: pointer;
+    span {
+      display: flex;
+      width: 30px;
+      padding: 2px;
+      margin: 4px 0;
+      background-color: #fff;
+      border-radius: 99px;
+    }
+
+    &.open {
+      span {
+        background-color: $primary-color;
+      }
+    }
+  }
+
+  .mobile {
+    position: absolute;
+    left: 0;
+    top: 68%;
+    right: 0;
+
+        // height: 100vh;
+    display: none;
+    @include displayMobile;
+    background-color: $primary-bg-color;
+    padding: 1rem;
+    transition: ALL 0.3s ease-in-out;
+    z-index: 999;
+
+    &.show {
+      
+      display: flex;
+    }
+
+    .nav_item {
+      list-style: none;
+      display: block;
+      margin-bottom: 0.5rem;
+
+      .nav_link {
+        @include navLink;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar_nav {
+      display: none;
+    }
+
+    .menu_burger {
+      display: block;
+    }
+
+    
+    .btn_signup {
+      display: none;
+    }
+    .btn_login {
+      @include button($primary-color, transparent, $primary-color);
+      margin-left: 1rem;
+      border: 1px solid $primary-color;
+      color: #fff;
+    }
+  }
+}

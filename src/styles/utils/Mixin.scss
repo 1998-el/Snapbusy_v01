@@ -1,0 +1,43 @@
+// _mixins.scss
+@mixin flexCenter($direction: row) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+  }
+@mixin display($direction: column){
+    display: flex;
+    flex-direction: $direction;
+    position: relative;
+  }
+  
+  @mixin navLink {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: $hover-color;
+    }
+  }
+  
+  @mixin button($color, $bg-color, $hover-bg-color) {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 14px;
+    color: $color;
+    background-color: $bg-color;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+  }
+  @mixin displayMobile($direction: column){
+   
+    justify-content: center;
+    align-items: ceil($number: 3);
+    flex-direction: $direction;
+  }
