@@ -1,4 +1,4 @@
-@import "../utils/Variable.scss";
+@use "../utils/Variable.scss" as vars;
 
 @mixin flexCenter($direction: row) {
   display: flex;
@@ -14,11 +14,11 @@
   font-weight: 600;
   cursor: pointer;
   color: $color;
-  background-color: $bg-color;
+  background-color: $bg-color; // Correction ici
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: $hover-bg-color;
+    background-color: $hover-bg-color; // Correction ici
     color: #fff;
   }
 }
@@ -26,13 +26,13 @@
 .banner {
   @include flexCenter(row);
   justify-content: space-between;
-  background-color: $secondary-bg-color;
+  background-color: vars.$secondary-bg-color;
   padding: 4rem 2rem;
+  height: 80vh;
 
   @media (max-width: 991px) {
     flex-direction: column;
     padding: 7rem 2rem;
-
   }
 
   .content {
@@ -59,7 +59,7 @@
 
     .description {
       font-size: 1.2rem;
-      color: $secondary-color;
+      color: vars.$secondary-color;
       margin-bottom: 2rem;
       text-align: justify;
 
@@ -79,7 +79,7 @@
       }
 
       .btn {
-        @include button(#fff, $primary-color, darken($primary-color, 10%));
+        @include button(#fff, vars.$primary-color, darken(vars.$primary-color, 10%));
 
         @media (max-width: 991px) {
           padding: 0.6rem 1.2rem;
@@ -87,8 +87,8 @@
         }
 
         &.btnSecondary {
-          @include button($primary-color, transparent, $primary-color);
-          border: 1px solid $primary-color;
+          @include button(vars.$primary-color, transparent, vars.$primary-color);
+          border: 1px solid vars.$primary-color;
           font-size: 12px;
         }
       }
@@ -106,5 +106,5 @@
       max-width: 100%;
       height: auto;
     }
-  }
+}
 }

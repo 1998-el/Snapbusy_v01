@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import header from '../styles/Header/header.module.scss';
 import log_dark from '../assets/logo/logo.png';
-import LanguageToggle from './Language_btn';
+// import LanguageToggle from './Language_btn';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,7 +36,7 @@ function Header() {
         <span></span>
       </div>
       <div className={header.navbar_brand}>
-        <a href='/home'><img src={log_dark} alt="Logo de l'entreprise" className={header.logo} /></a>
+        <Link to='/home'><img src={log_dark} alt="Logo de l'entreprise" className={header.logo} /></Link>
       </div>
       <ul
         className={`${isMobile ? header.mobile : header.navbar_nav} ${
@@ -43,39 +44,39 @@ function Header() {
         }`}
       >
         <li className={header.nav_item}>
-          <a href="#" className={header.nav_link}>
+          <Link to="/blog" className={header.nav_link}>
             Blog
-          </a>
+          </Link>
         </li>
         <li className={header.nav_item}>
-          <a href="#" className={header.nav_link}>
+          <Link to="/api" className={header.nav_link}>
             API
-          </a>
+          </Link>
         </li>
         <li className={header.nav_item}>
-          <a href="#" className={header.nav_link}>
+          <Link to="/solutions" className={header.nav_link}>
             Solutions
-          </a>
+          </Link>
         </li>
         <li className={header.nav_item}>
-          <a href="#" className={header.nav_link}>
+          <Link to="/help" className={header.nav_link}>
             Help
-          </a>
+          </Link>
         </li>
         <li className={header.nav_item}>
-          <a href="#" className={header.nav_link}>
+          <Link to="/contact" className={header.nav_link}>
             Contact
-          </a>
+          </Link>
         </li>
       </ul>
       {/* <LanguageToggle /> */}
       <div className={header.navbar_actions}>
-        <a href="#" className={header.btn_login}>
+        <Link to="/login" className={header.btn_login}>
           Login
-        </a>
-        <a href="#" className={header.btn_signup}>
+        </Link>
+        <Link to="/signup" className={header.btn_signup}>
           Sign Up
-        </a>
+        </Link>
       </div>
     </div>
   );
