@@ -1,0 +1,135 @@
+@use 'sass:color';
+@use '../styles/variable.scss' as vars;
+@use '../styles/utils/mixin.scss' as mixins;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: vars.$primary-bg-color;
+  color: #fff;
+  padding: 0rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  z-index: 888;
+
+ 
+
+  .brand {
+    @include mixins.flexCenter; 
+    height: 55px;
+    width: 10%;
+    position: relative;
+    .navlink{
+      height: 100%;
+      width: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    }
+}
+
+
+  .nav {
+    @include mixins.flexCenter;
+    width: 50%;
+
+    .navitem {
+      list-style: none;
+      display: flex;
+
+      .navlink {
+        @include mixins.navLink; 
+      }
+    }
+  }
+
+  .navbaractions {
+    @include mixins.flexCenter; 
+
+    .btnlogin {
+      @include mixins.button(#fff, vars.$primary-color, vars.$hover-color);
+    }
+
+    .btnsignup {
+      @include mixins.button(vars.$primary-color, transparent, vars.$primary-color);
+      margin-left: 1rem;
+      border: 1px solid vars.$primary-color;
+      color: #fff;
+    }
+  }
+
+  .menuburger {
+    display: none;
+    cursor: pointer;
+
+    span {
+      display: flex;
+      width: 30px;
+      padding: 2px;
+      margin: 4px 0;
+      background-color: #fff;
+      border-radius: 99px;
+    }
+
+    &.open {
+      span {
+        background-color: vars.$primary-color; 
+      }
+    }
+  }
+
+  .mobile {
+    position: absolute;
+    left: 0;
+    top: 68%;
+    right: 0;
+    display: none;
+    @include mixins.displayMobile;
+    background-color: vars.$primary-bg-color;
+    padding: 1rem;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+
+    &.show {
+      display: block;
+    }
+
+    .navitem {
+      list-style: none;
+      display: block;
+      margin-bottom: 0.5rem;
+
+      .navlink {
+        @include mixins.navLink;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+    }
+
+    .menuburger {
+      display: block;
+    }
+
+    .btnsignup {
+      display: none;
+    }
+
+    .btnlogin {
+      @include mixins.button(vars.$primary-color, transparent, vars.$primary-color);
+      margin-left: 1rem;
+      border: 1px solid vars.$primary-color; 
+      color: #fff;
+    }
+  }
+}

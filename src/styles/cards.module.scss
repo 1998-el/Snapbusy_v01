@@ -1,0 +1,115 @@
+@use '../styles/variable.scss' as vars;
+@use '../styles/utils/mixin.scss' as mixins;
+
+.container {
+  background: vars.$primary-bg-color; 
+  width: 100%;
+  padding-top: 20px;
+  @include mixins.display; 
+  margin: 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle, #babcbd, #002c5c99, #002d5c);
+    background-size: 200% 200%;
+    background-position: center center;
+    animation: bgGradient 10s ease infinite;
+  }
+
+  @keyframes bgGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .threeCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 4rem 2rem;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      padding: 2rem 1rem; 
+    }
+
+    .card {
+      background-color: vars.$background-card-color;  
+      border: 1px solid rgba(204, 204, 204, 0.33);
+      border-radius: 8px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 2rem ;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(232, 230, 230, 0.15);
+        border-color: #f8f9fa;
+      }
+
+      .cardTitle {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: vars.$primary-color;
+        margin-bottom: 1rem;
+
+        @media (max-width: 767px) {
+          font-size: 1.25rem; 
+        }
+      }
+
+      .cardDescription {
+        font-size: 1rem; 
+        color: vars.$secondary-color; 
+
+        @media (max-width: 767px) {
+          font-size: 0.875rem; 
+        }
+      }
+    }
+  }
+
+  .sectionTitle {
+    font-size: 1.6rem; 
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    color: vars.$secondary-bg-color;
+
+    @media (max-width: 767px) {
+      font-size: 1.5rem; 
+    }
+  }
+
+  .sectionDescription {
+    font-size: 1rem;
+    color: vars.$secondary-color; 
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 4rem;
+
+    @media (max-width: 767px) {
+      padding: 0 2rem; 
+    }
+  }
+}

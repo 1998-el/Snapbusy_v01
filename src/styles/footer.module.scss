@@ -1,0 +1,96 @@
+@use './variable.scss' as vars;
+@use 'sass:color'; // Importation du module color
+
+.footer {
+  background-color: vars.$primary-bg-color; // Utilisation de la variable avec le préfixe 'vars'
+  color: #adacac70;
+  padding: 60px 20px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+
+    @media (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: #adacac;
+        text-decoration: none;
+
+        &:hover {
+          color: vars.$primary-color; // Utilisation de la variable avec le préfixe 'vars'
+        }
+      }
+    }
+  }
+
+  .newsletter {
+    input {
+      width: 90%;
+      padding: 14px 12px;
+      border: none;
+      margin-bottom: 10px;
+      background-color: #262f4c;
+      color: vars.$text-color; // Utilisation de la variable avec le préfixe 'vars'
+
+      &::placeholder {
+        color: vars.$secondary-color; // Utilisation de la variable avec le préfixe 'vars'
+      }
+    }
+
+    button {
+      background-color: vars.$primary-color; // Utilisation de la variable avec le préfixe 'vars'
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: color.adjust(vars.$primary-color, $lightness: -10%); // Utilisation de color.adjust
+      }
+    }
+  }
+
+  .separator {
+    border-color: vars.$secondary-color; // Utilisation de la variable avec le préfixe 'vars'
+    margin-top: 40px;
+    width: 60%;
+
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+    color: vars.$secondary-color; // Utilisation de la variable avec le préfixe 'vars'
+  }
+}
